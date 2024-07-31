@@ -10,6 +10,13 @@ jobs:
         run: |
           echo "This job is running on a Ubuntu runner"
           echo "Runner OS: ${{ runner.os }}"
-          exit 0
-      - name: Say Goodbye
-        run: echo "Goodbye, World!"
+
+
+  windows-echo:
+    runs-on: windows-latest
+    steps:
+      - name: Show OS
+        run: |
+          echo "This job is running on a Windows runner"
+          echo "Runner OS: ${{ runner.os }}"
+  
