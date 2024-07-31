@@ -1,0 +1,15 @@
+name: 01- building-blocks
+
+on: push
+
+jobs:
+  ubuntu-echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show OS
+        run: |
+          echo "This job is running on a Ubuntu runner"
+          echo "Runner OS: ${{ runner.os }}"
+          exit 0
+      - name: Say Goodbye
+        run: echo "Goodbye, World!"
