@@ -1,0 +1,17 @@
+name: 05- Event Filter and Activity Type
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is a pull request event on main branch"
+      - name: Unit Test
+        run: npm run test
