@@ -8,19 +8,19 @@ jobs:
     steps:
       - name: Display Information
         run: |
-          echo "Event name: ${{github.event_name}}"
-          echo "Repository: ${{github.repository}}"
-          echo "Ref: ${{github.ref}}"
-          echo "SHA: ${{github.sha}}"
-          echo "Actor: ${{github.actor}}"
-          echo "Workflow: ${{github.workflow}}"
-          echo "Action: ${{github.action}}"
-          echo "Event Path: ${{github.event_path}}"
-          echo "Workspace: ${{github.workspace}}"
-          echo "Event: ${{toJson(github.event)}}"
-          echo "Event Payload: ${{fromJson(github.event_path)}}"
-          echo "Event Payload: ${{fromJson(github.event_path)}}"
-          echo "Run Number: ${{fromJson(github.run_number)}}"
-      - name: Display Environment Variables
-        run: |
-          echo "variable value: ${{vars.MY_VAR}}"
+          echo "Event name: ${{github.event_name}}",
+          echo "Repository: ${{github.repository}}",
+          echo "Ref: ${{github.ref}}",
+          echo "SHA: ${{github.sha}}",
+          echo "Actor: ${{github.actor}}",
+          echo "Workflow: ${{github.workflow}}",
+          echo "Action: ${{github.action}}",
+          echo "Event Path: ${{github.event_path}}",
+          echo "Workspace: ${{github.workspace}}",
+          echo "Event: ${{toJson(github.event)}}",
+          echo "Event Payload: ${{fromJson(github.event_path)}}",
+          echo "Event Payload: ${{fromJson(github.event_path)}}",
+          echo "Run Number: ${{fromJson(github.run_number)}}",
+      # - name: Display Environment Variables
+      #   run: |
+      #     echo "variable value: ${{vars.MY_VAR}}"
