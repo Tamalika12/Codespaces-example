@@ -19,10 +19,6 @@ jobs:
           echo "Action: ${{github.action}}"
           echo "Event Path: ${{github.event_path}}"
           echo "Workspace: ${{github.workspace}}"
-          echo "Event: ${{toJson(github.event)}}"
-          echo "Event Payload: ${{fromJson(github.event_path)}}"
-          echo "Event Payload: ${{fromJson(github.event_path)}}"
-          echo "Run Number: ${{fromJson(github.run_number)}}"
-      # - name: Display Environment Variables
-      #   run: |
-      #     echo "variable value: ${{vars.MY_VAR}}"
+      - name: Display Environment Variables
+        run: |
+          echo "variable value: ${{vars.MY_VAR}}"
