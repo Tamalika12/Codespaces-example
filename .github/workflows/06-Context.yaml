@@ -1,9 +1,9 @@
 name: 06- Context
-on:
-  push:
+
+on: push
 
 jobs:
-  echo-data:
+  echo:
     runs-on: ubuntu-latest
     steps:
       - name: Display Information
@@ -21,7 +21,6 @@ jobs:
           echo "Event Payload: ${{fromJson(github.event_path)}}"
           echo "Event Payload: ${{fromJson(github.event_path)}}"
           echo "Run Number: ${{fromJson(github.run_number)}}"
-
       - name: Display Environment Variables
         run: |
           echo "variable value: ${{vars.MY_VAR}}"
