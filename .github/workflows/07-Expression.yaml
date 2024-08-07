@@ -1,5 +1,8 @@
 name: 07- Using Expression
-run-name: 06- Context | DEBUG- ${{ inputs.debug }}
+run-name: 07- Using expression | DEBUG- ${{ inputs.debug && 'ON' || 'OFF' }}
+
+env:
+  MY_VAR_With_DEFAULT: ${{ vars.MY_VAR || 'default_value' }}
 
 on:
   push:
@@ -12,10 +15,6 @@ on:
 jobs:
   echo-data:
     runs-on: ubuntu-latest
-    # env:
-    #   MY_JOB_VAR: "job"
-    #   MY_Override_VAR: "job"
-
     steps:
       - name: "[Debug] Print start-up"
         if: ${{ inputs.debug }}
