@@ -1,4 +1,4 @@
-name: 06- Context
+name: 07- Using Expression
 run-name: 06- Context | DEBUG- ${{ inputs.debug }}
 
 on:
@@ -12,14 +12,15 @@ on:
 jobs:
   echo-data:
     runs-on: ubuntu-latest
-    env:
-      MY_JOB_VAR: "job"
-      MY_Override_VAR: "job"
+    # env:
+    #   MY_JOB_VAR: "job"
+    #   MY_Override_VAR: "job"
 
     steps:
-      - name: Display Information
+      - name: "[Debug] Print start-up"
+        if: ${{ inputs.debug }}
         run: |
-          echo "Event name: ${{ github.event_name }}"
+          echo "Triggered by: ${{ github.event_name }}"
           echo "Repository: ${{ github.repository }}"
           echo "Ref: ${{github.ref}}"
           echo "SHA: ${{github.sha}}"
@@ -27,11 +28,10 @@ jobs:
           echo "Workflow: ${{github.workflow}}"
           echo "Action: ${{github.action}}"
           echo "Event Path: ${{github.event_path}}"
-          echo "Workspace: ${{github.workspace}}"
-      - name: Retrieve Variables
+          echo "Runner Os: ${{runner.os}}"
+      - name: "[Debug] Print when triggered from main"
+        if: ${{ inputs.debug && github.ref == 'refs/heads/main' }}
         run: |
-          echo "variable value: ${{vars.MY_VAR}}"
-          - name : Display Environment Variables
-            run: |
-              echo "Job env: ${{env.MY_JOB_VAR}}"
-              echo "Overwritten env: ${{env.MY_Override_VAR}}"
+          echo "I was triggered from main branch"
+      - name: Greetings
+        run: echo "Hello world"
