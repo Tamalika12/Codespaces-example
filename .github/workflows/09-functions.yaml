@@ -1,4 +1,4 @@
-name: 08- Using functions
+name: 09- Using functions
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
         run: echo "I will print if previos step fails"
       - name: I will execute
         if: ${{ !cancelled() }}
-        run: echo "I will always print, when the job is cancelled"
+        run: echo "I will always print, when the job is not cancelled"
       - name: I will execute
         if: ${{ cancelled() }}
         run: echo "I will always print, unless the job is cancelled"
